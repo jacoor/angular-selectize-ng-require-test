@@ -1,3 +1,7 @@
+Tests of selectize-ng working together with require.js
+
+Original selectize-ng repo available at https://github.com/kbanman/selectize-ng
+
 # Selectize-ng
 
 [Selectize.js](http://brianreavis.github.io/selectize.js) directive for AngularJS with two-way bindings for both values and options.
