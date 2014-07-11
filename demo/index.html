@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../lib/selectize/dist/css/selectize.css"/>
+    <script data-main="main.js" src="/lib/requirejs/require.js"></script>
+  </head>
+  
+
+  <body ng-controller="MainCtrl">
+
+    <h3>Tagging (&lt;input /&gt;)</h3>
+    <input type="text" ng-model="tagging.value"/>
+    <input type="text" selectize="tagging.options" placeholder="Choose some users" ng-model="tagging.value" options="users"/>
+
+    <h3>Single (&lt;select /&gt;)</h3>
+    <input type="text" ng-model="single.value"/>
+    <select selectize="single.options" placeholder="Choose a user" ng-model="single.value" options="users"></select>
+
+    <hr />
+
+    <p>
+      <button ng-click="addUsers()">Add Users</button><br />
+      Adds another user to the options list, demonstrating binding options
+    </p>
+    
+  </body>
+</html>
