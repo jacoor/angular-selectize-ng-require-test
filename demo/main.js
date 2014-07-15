@@ -4,23 +4,27 @@
 require.config({
     'baseUrl': '/lib/',
     'paths': {
+        'domReady': '/bower_components/domReady/domReady',
         'angular': 'angular/angular.min',
         'angularAMD': 'angularAMD/angularAMD.min',
         'jquery': 'jquery/dist/jquery.min',
-        //'selectize': 'selectize/dist/js/standalone/selectize',
-        'selectize-ng': 'selectize-ng/dist/standalone/selectize-ng.min',
+        'selectize': 'selectize/dist/js/standalone/selectize',
+        'selectize-ng': 'selectize-ng/dist/selectize-ng',
 
         'app': '/demo/app',
         'setup': '/demo/setup',
     },
     shim: {
-        //'angular': {
-        //    'deps': ['jquery'],
-        //    'exports': 'angular'
-        //},
-        'angularAMD': ['angular'],
-        'selectize-ng': {
+        'angular': {
             'deps': ['jquery'],
+            'exports': 'angular'
+        },
+        'angularAMD': ['angular'],
+        'selectize': {
+            'deps': ['jquery'],
+        },
+        'selectize-ng': {
+            'deps': ['selectize', 'angular'],
         }
 
     }
@@ -40,9 +44,16 @@ require([
     ){
         "use strict";
 
-        var start = function(){
-            angularAMD.bootstrap(App);
-        };
-        start();
+        require(['domReady!'], function() {
+
+
+            var start = function() {
+                angularAMD.bootstrap(App);
+            };
+
+            start();
+            
+        });
+
     }
 );
